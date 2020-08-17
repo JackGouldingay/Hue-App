@@ -28,3 +28,23 @@ a {
 a div:hover {
     font-weight: 300;
 }
+
+.App {
+    position: relative;
+    min-height: 100vh;
+}
+
+.main {
+    padding: 2.5em 0 0 0;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 2.5em;
+    width: 100%;
+}
+
+footer>span>a {
+    font-size: 1em;
+}

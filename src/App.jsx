@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // Local Imports
 import "./css/App.css";
@@ -25,18 +25,25 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					<Link to="/">
-						<h1 className="title">Electron App</h1>
-					</Link>
+					<div className="main">
+						<Link to="/">
+							<h1 className="title">Electron App</h1>
+						</Link>
 
-					<Switch>
-						<Route exact path="/" component={(props) => <Groups {...props} hueUrl={this.state.hueUrl} />} />
+						<Switch>
+							<Route exact path="/" component={(props) => <Groups {...props} hueUrl={this.state.hueUrl} />} />
 
-						<Route path="/group/:id" component={(props) => <Group {...props} hueUrl={this.state.hueUrl} />} />
+							<Route path="/group/:id" component={(props) => <Group {...props} hueUrl={this.state.hueUrl} />} />
 
-						<Route path="/light/:id" component={(props) => <Light {...props} hueUrl={this.state.hueUrl} />} />
-					</Switch>
+							<Route path="/light/:id" component={(props) => <Light {...props} hueUrl={this.state.hueUrl} />} />
+						</Switch>
+					</div>
+					<footer>
+						<span>Icons provided by <a href="https://www.icons8.com">Icons 8</a></span>
+					</footer>
 				</div>
+
+
 			</Router>
 		);
 	}

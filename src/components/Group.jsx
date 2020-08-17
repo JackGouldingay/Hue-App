@@ -1,10 +1,12 @@
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 // Local imports
 import "../css/Groups.css";
-import {ConvertColor} from "../modules/HueColor";
+import { ConvertColor } from "../modules/HueColor";
+import flashlight_light from "../images/icons/flashlight-light.png";
+import flashlight_dark from "../images/icons/flashlight-dark.png";
 
 class Group extends Component {
 	constructor(props) {
@@ -23,17 +25,23 @@ class Group extends Component {
 				bri: props.item.action.bri / 254,
 			},
 		};
+
 	}
 
 	HandleChange = (e) => {
 		let form = this.state.form;
 		form.bri = e.target.value;
-		this.setState({form});
+		this.setState({ form });
 	};
 
-	HandleInput = (e) => {
-		console.log(e.target.value);
-	};
+	HandleClick = (e) => {
+		if (e.target.id === "flashlight") {
+			let form = this.state.form;
+			form.on = !form.on;
+			this.setState({ form });
+			this.UpdateLights();
+		}
+	}
 
 	UpdateLights = () => {
 		let form = this.state.form;
@@ -49,12 +57,12 @@ class Group extends Component {
 		const id = this.state.group.id;
 		const item = this.state.group.data;
 		const form = this.state.form;
-		const {r, g, b} = ConvertColor(item.action);
-		const boxShadow = `1px 1px 5px 1px rgba(${r}, ${g}, ${b}, ${form.bri})`;
+		const { r, g, b } = ConvertColor(item.action);
+		const boxShadow = `1px 1px 5px 1px rgba(${r}, ${g}, ${b}, ${!form.on ? 0 : form.bri})`;
 		const linearGrdient = `linear-gradient(to right, rgba(${r},${g},${b}, 0.1), rgba(${r},${g},${b}, 1))`;
 
 		return (
-			<div className="group-item" style={{boxShadow}}>
+			<div className="group-item" style={{ boxShadow }}>
 				<h2>{item.name}</h2>
 				<span>Lights {item.lights.length}</span>
 
@@ -70,7 +78,7 @@ class Group extends Component {
 						value={form.bri}
 						onChange={this.HandleChange}
 						onMouseUp={this.UpdateLights}
-						style={{background: linearGrdient}}
+						style={{ background: linearGrdient }}
 					/>
 				</div>
 
@@ -78,6 +86,7 @@ class Group extends Component {
 					<Link to={`/group/${id}`}>
 						<div className="view-group">View Group</div>
 					</Link>
+					<img src={form.on ? flashlight_light : flashlight_dark} className="flashlight" data-on={form.on ? true : false} alt="Flashlight" id="flashlight" onClick={this.HandleClick} />
 				</div>
 			</div>
 		);

@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import axios from "axios";
-import {CircularProgress} from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 
 // Local imports
-import {ConvertColor} from "../modules/HueColor";
+import { ConvertColor } from "../modules/HueColor";
 
 class Light extends Component {
 	constructor(props) {
@@ -35,14 +35,14 @@ class Light extends Component {
 			light.isLoaded = true;
 			form.on = light.data.state.on;
 			form.bri = light.data.state.bri / 254;
-			this.setState({light, form});
+			this.setState({ light, form });
 		});
 	};
 
 	HandleChange = (e) => {
 		let form = this.state.form;
 		form.bri = e.target.value;
-		this.setState({form});
+		this.setState({ form });
 	};
 
 	HandleColorChange = (e) => {
@@ -63,37 +63,37 @@ class Light extends Component {
 	render() {
 		const light = this.state.light.data;
 		const form = this.state.form;
-		const {r, g, b} = ConvertColor(light.state);
+		const { r, g, b } = ConvertColor(light.state);
 		const boxShadow = `1px 1px 5px 1px rgba(${r}, ${g}, ${b}, ${form.bri})`;
 		const linearGradient = `linear-gradient(to right, rgba(${r},${g},${b}, 0.1), rgba(${r},${g},${b}, 1))`;
 
 		return (
-			<div className="light-item" style={{boxShadow}}>
+			<div className="light-item" style={{ boxShadow }}>
 				{this.state.light.isLoaded === false ? (
 					<CircularProgress />
 				) : (
-					<div>
-						<h4>{light.name}</h4>
+						<div>
+							<h4>{light.name}</h4>
 
-						<div className="range-div">
-							<span>{Math.round(form.bri * 100)}%</span>
-							<input
-								type="range"
-								name="brightness"
-								className="brightnessRange"
-								min="0"
-								max="1"
-								step="0.01"
-								value={form.bri}
-								onChange={this.HandleChange}
-								onMouseUp={this.UpdateLight}
-								style={{background: linearGradient}}
-							/>
+							<div className="range-div">
+								<span>{Math.round(form.bri * 100)}%</span>
+								<input
+									type="range"
+									name="brightness"
+									className="brightnessRange"
+									min="0"
+									max="1"
+									step="0.01"
+									value={form.bri}
+									onChange={this.HandleChange}
+									onMouseUp={this.UpdateLight}
+									style={{ background: linearGradient }}
+								/>
+							</div>
+
+							{/* <input type="color" name="colorPicker" className="colorPicker" onChange={this.HandleColorChange} /> */}
 						</div>
-
-						<input type="color" name="colorPicker" className="colorPicker" onChange={this.HandleColorChange} />
-					</div>
-				)}
+					)}
 			</div>
 		);
 	}

@@ -9,8 +9,30 @@
     max-height: 7em;
     padding: 1em 1em 5em 1em;
     overflow: hidden;
+    transition: box-shadow .3s;
 }
 
 .group-item .buttons {
     margin-top: 1.5em;
+}
+
+.group-item .buttons .view-group {
+    float: left;
+}
+
+.group-item .buttons img {
+    border-radius: 50%;
+    padding: 0.1em;
+    float: right;
+    width: 30px;
+    cursor: pointer;
+}
+
+.flashlight {
+    transition: background .5s;
+    transform: rotate(-45deg);
+}
+
+.flashlight[data-on = true] {
+    background: rgb(255,255,255);
 }
