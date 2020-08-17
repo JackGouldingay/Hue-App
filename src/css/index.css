@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400&display=swap");
+
+body {
+    margin: 0;
+    font-family: "Titillium Web", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background-color: #130f40;
+    color: white;
+}
+
+* {
+    font-weight: 200;
+}
+
+::selection {
+    background: rgba(255, 255, 255, 1);
+}
+
+a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+
+}
+
+a div:hover {
+    font-weight: 300;
+}

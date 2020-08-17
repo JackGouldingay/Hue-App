@@ -1,0 +1,11 @@
+.App {
+	text-align: center;
+}
+
+.title {
+	font-weight: 200;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}

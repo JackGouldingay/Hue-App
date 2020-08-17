@@ -1,0 +1,81 @@
+.light-item {
+    display: inline-block;
+    /* border: 1px solid #130f40; */
+    border-radius: 0.8em;
+    margin: 0.6em;
+    width: 10em;
+    min-width: 10em;
+    max-width: 10em;
+    height: 7em;
+    max-height: 7em;
+    padding: 1em 1em 5em 1em;
+    overflow: hidden;
+}
+
+
+.light-item .buttons {
+    margin-top: 1.5em;
+}
+
+/* .light-item .range-div {
+    display: block;
+}
+
+.light-item .range-div span {
+    position: absolute;
+    margin-left: 2em;
+    margin-top: .2em;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.light-item .brightnessRange {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s, border-radius .3s, height .3s;
+}
+
+.light-item .brightnessRange:hover {
+    opacity: .9;
+}
+
+.light-item .brightnessRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    transition: height .3s;
+}
+
+.light-item .brightnessRange::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+
+.light-item .brightnessRange:active {
+    height: 30px;
+    border-radius: 5px;
+}
+
+.light-item .range-div:active span {
+    opacity: 1;
+}
+
+.light-item .brightnessRange::-webkit-slider-thumb:active,
+.light-item .brightnessRange:active::-webkit-slider-thumb {
+    position: relative;
+    margin-top: 15px;
+    border-radius: 5px;
+} */
